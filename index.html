@@ -98,7 +98,7 @@ footer{background:var(--ink);color:#c9d5e2;padding:48px 0 96px;font-size:.95rem}
 footer img{height:56px;width:auto;border-radius:8px;margin-bottom:16px;background:#fff}
 .float{position:fixed;right:16px;bottom:16px;z-index:30;width:60px;height:60px;border-radius:50%;background:var(--wa);display:grid;place-items:center;box-shadow:0 6px 18px rgba(0,0,0,.3)}
 .float svg{width:32px;height:32px;fill:#fff}
-.clip{background:var(--ink);color:#fff}.clip .lead{color:#b7c5d6}.clip video{width:100%;height:auto;max-height:80vh;border-radius:var(--r);background:#000;display:block;margin-inline:auto}
+.clip{background:var(--ink);color:#fff}.clip .lead{color:#b7c5d6}.clip video{width:100%;aspect-ratio:16/9;height:auto;max-height:80vh;border-radius:var(--r);background:#000;display:block;margin-inline:auto}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn{transition:none}}
 </style>
 </head>
@@ -167,7 +167,7 @@ footer img{height:56px;width:auto;border-radius:8px;margin-bottom:16px;backgroun
 <div class="wrap">
 <h2>Conheça os produtos em vídeo</h2>
 <p class="lead">Veja como são os produtos da Klayme.</p>
-<video id="clip" autoplay muted loop playsinline preload="metadata" aria-label="Vídeo de apresentação dos produtos Klayme"><source src="clipeproduto.mp4" type="video/mp4"></video>
+<video id="clip" autoplay muted loop playsinline preload="metadata" aria-label="Vídeo de apresentação dos produtos Klayme"><source src="clippprodutross.mp4" type="video/mp4"></video>
 </div>
 </section>
 
@@ -307,7 +307,7 @@ footer img{height:56px;width:auto;border-radius:8px;margin-bottom:16px;backgroun
 <script>
 (function(){
 var clip=document.getElementById("clip");
-if(clip){clip.muted=true;var pl=clip.play();if(pl&&pl.catch)pl.catch(function(){});}
+if(clip){clip.muted=true;var go=function(){var pl=clip.play();if(pl&&pl.catch)pl.catch(function(){})};go();clip.addEventListener("loadeddata",go);clip.addEventListener("ended",function(){clip.currentTime=0;go()});}
 var NUM="5511975682158";
 var GERAL="bom dia, tudo bem? Gostaria de informações sobre como adquirir o produto. Por favor, encaminhe-me para o atendimento personalizado.";
 function wa(t){return "https://wa.me/"+NUM+"?text="+encodeURIComponent(t)}
